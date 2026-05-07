@@ -4,6 +4,8 @@ import com.abdullah.BiblioBook.dto.request.CreateBookRequest;
 import com.abdullah.BiblioBook.dto.request.UpdateBookRequest;
 import com.abdullah.BiblioBook.dto.response.BookResponse;
 import com.abdullah.BiblioBook.service.interfaces.BookService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
+@Tag(name = "Book Management APIs", description = "Operations related to books")
 public class BookController {
 
     private final BookService bookService;
 
+    @Operation(summary = "Create new book")
     @PostMapping
     public BookResponse createBook(@RequestBody CreateBookRequest request) {
         return bookService.createBook(request);

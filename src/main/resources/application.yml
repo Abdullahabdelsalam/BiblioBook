@@ -8,6 +8,7 @@ spring:
     password: P@ssw0rd
     driver-class-name: org.postgresql.Driver
 
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,5 +17,11 @@ spring:
       hibernate:
         format_sql: true
 
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+      operationsSorter: method
+    api-docs:
+      path: /api-docs
   flyway:
     enabled: true
